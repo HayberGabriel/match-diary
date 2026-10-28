@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MatchdiaryApplication {
+public class BackendSpring {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MatchdiaryApplication.class, args);
+		SpringApplication.run(BackendSpring.class, args);
 	}
 
 }
