@@ -13,7 +13,7 @@ import lombok.Setter;
 
 
 @Table (name = "team")
-@Entity(name = "team")
+@Entity (name = "team")
 @Getter 
 @Setter
 @NoArgsConstructor 
@@ -29,7 +29,7 @@ public class Team {
     @Column(name = "state")
     private String state;
 
-    @Column(name = "photoUrl")
+    @Column(name = "photo_Url")
     private String photoUrl;
 
 }

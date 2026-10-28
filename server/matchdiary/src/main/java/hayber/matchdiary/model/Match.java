@@ -19,7 +19,7 @@ import lombok.Setter;
 
 
 @Table (name = "match")
-@Entity(name = "match")
+@Entity (name = "match")
 @Getter 
 @Setter
 @NoArgsConstructor 
