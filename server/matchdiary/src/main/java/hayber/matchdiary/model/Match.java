@@ -5,7 +5,6 @@ import java.sql.Date;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import hayber.matchdiary.dto.match.MatchRequestDTO;
-import hayber.matchdiary.dto.team.TeamRequestDTO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

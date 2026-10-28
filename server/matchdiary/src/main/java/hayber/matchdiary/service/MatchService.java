@@ -3,13 +3,10 @@ package hayber.matchdiary.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import hayber.matchdiary.dto.match.MatchRequestDTO;
 import hayber.matchdiary.dto.match.MatchResponseDTO;
-import hayber.matchdiary.dto.team.TeamRequestDTO;
-import hayber.matchdiary.dto.team.TeamResponseDTO;
 import hayber.matchdiary.model.Match;
 import hayber.matchdiary.model.Team;
 import hayber.matchdiary.repository.MatchRespository;
