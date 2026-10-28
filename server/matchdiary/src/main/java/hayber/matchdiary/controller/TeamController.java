@@ -3,9 +3,12 @@ package hayber.matchdiary.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import hayber.matchdiary.dto.team.TeamRequestDTO;
 import hayber.matchdiary.dto.team.TeamResponseDTO;
 import hayber.matchdiary.model.Team;
 import hayber.matchdiary.service.TeamService;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -26,8 +29,8 @@ public class TeamController {
     private TeamService teamService;
 
     @GetMapping("/all")
-    public String getAllTeams() {
-        return "Teste";
+    public List<Team> getAllTeams() {
+        return teamService.getAllTeams();
     }
 
     @GetMapping("/{id}")
@@ -36,8 +39,8 @@ public class TeamController {
     }
     
     @PostMapping()
-    public String addTeam(@RequestBody Team team) {
-        return "";
+    public ResponseEntity<Team> addTeam(@RequestBody TeamRequestDTO teamRequestDTO) {
+        return ResponseEntity.ok(teamService.registerTeam(teamRequestDTO));
     }
 
     @PutMapping("path/{id}")

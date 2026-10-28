@@ -1,5 +1,6 @@
 package hayber.matchdiary.model;
 
+import hayber.matchdiary.dto.team.TeamRequestDTO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,5 +32,12 @@ public class Team {
 
     @Column(name = "photo_Url")
     private String photoUrl;
+
+    public Team(TeamRequestDTO teamRequestDTO){
+        this.id = teamRequestDTO.getId();
+        this.name = teamRequestDTO.getName();
+        this.state = teamRequestDTO.getState();
+        this.photoUrl = teamRequestDTO.getPhotoUrl();
+    }
 
 }
