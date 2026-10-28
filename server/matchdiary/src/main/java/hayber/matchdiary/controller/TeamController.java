@@ -10,7 +10,6 @@ import hayber.matchdiary.service.TeamService;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,8 +24,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 @RequestMapping ("/api/team")
 public class TeamController {
 
-    @Autowired 
-    private TeamService teamService;
+    private final TeamService teamService;
+
+    TeamController(TeamService teamService) {
+        this.teamService = teamService;
+    }
 
     @GetMapping("/all")
     public List<Team> getAllTeams() {
@@ -43,14 +45,15 @@ public class TeamController {
         return ResponseEntity.ok(teamService.registerTeam(teamRequestDTO));
     }
 
-    @PutMapping("path/{id}")
-    public String updateTeam(@RequestBody Team team) {        
-        return "";
+    @PutMapping()
+    public ResponseEntity<Team> updateTeam(@RequestBody TeamRequestDTO teamRequestDTO) {
+        return ResponseEntity.ok(teamService.updateTeam(teamRequestDTO));
     }
 
-    @DeleteMapping("id")
-    public String deleteTeam(@RequestParam("id") Long id){
-        return "";
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteTeam(@PathVariable ("id") Long id){
+        teamService.deleteTeam(id);
+        return ResponseEntity.ok("Time deletado com sucesso!");
     }
     
 

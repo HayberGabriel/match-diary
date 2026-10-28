@@ -7,7 +7,7 @@ import hayber.matchdiary.model.Team;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -22,7 +22,7 @@ public class MatchController {
     }
 
     @GetMapping("{id}")
-    public String getMatchById(@RequestParam("id") Long id) {
+    public String getMatchById(@PathVariable ("id") Long id) {
         return "";
     }
     
@@ -37,7 +37,7 @@ public class MatchController {
     }
 
     @DeleteMapping("{id}")
-    public String deleteMatch(@RequestParam("id") Long id){
+    public String deleteMatch(@PathVariable ("id") Long id){
         return "";
     }
     
