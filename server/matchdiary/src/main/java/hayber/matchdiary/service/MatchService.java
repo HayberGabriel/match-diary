@@ -47,6 +47,10 @@ public class MatchService {
             return null;
         }
 
+        if(matchRequestDTO.getTeamOneId().equals(matchRequestDTO.getTeamTwoId())){
+            return null;
+        }
+
         Team teamOne = teamRepository.findById(matchRequestDTO.getTeamOneId())
                 .orElseThrow(() -> new IllegalArgumentException("Time 1 não encontrado"));
         Team teamTwo = teamRepository.findById(matchRequestDTO.getTeamTwoId())
@@ -64,6 +68,10 @@ public class MatchService {
                 matchRequestDTO.getSupportedTeamId().toString().isEmpty() ||
                 matchRequestDTO.getTeamOneId().toString().isEmpty() ||
                 matchRequestDTO.getTeamTwoId().toString().isEmpty()) {
+            return null;
+        }
+
+        if(matchRequestDTO.getTeamOneId().equals(matchRequestDTO.getTeamTwoId())){
             return null;
         }
 
