@@ -24,6 +24,10 @@ public class MatchService {
         this.teamRepository = teamRepository;
     }
 
+    public List<Match> getAllMatches() {
+        return matchRespository.findAll();
+    }
+
     public MatchResponseDTO getMatchById(final Long id) {
         if (id <= 0) {
             return new MatchResponseDTO();
@@ -34,11 +38,7 @@ public class MatchService {
         return response.map(MatchResponseDTO::new).orElseGet(MatchResponseDTO::new);
     }
 
-    public List<Match> getAllMatches() {
-        return matchRespository.findAll();
-    }
-
-    public Match registerMatch(final MatchRequestDTO matchRequestDTO) {
+    public Match registerMatch(final MatchRequestDTO matchRequestDTO) {                                         
         if (matchRequestDTO.getScoreTeamOne().toString().isEmpty() ||
                 matchRequestDTO.getScoreTeamTwo().toString().isEmpty() ||
                 matchRequestDTO.getSupportedTeamId().toString().isEmpty() ||

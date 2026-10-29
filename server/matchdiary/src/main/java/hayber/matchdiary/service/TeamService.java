@@ -19,6 +19,11 @@ public class TeamService {
     this.teamRepository = teamRepository;
   }
 
+  
+  public List<Team> getAllTeams() {
+    return teamRepository.findAll();
+  }
+
   public TeamResponseDTO getTeamById(final Long id) {
     if (id <= 0) {
       return new TeamResponseDTO();
@@ -27,10 +32,6 @@ public class TeamService {
     Optional<Team> response = teamRepository.findById(id);
 
     return response.map(TeamResponseDTO::new).orElseGet(TeamResponseDTO::new);
-  }
-
-  public List<Team> getAllTeams() {
-    return teamRepository.findAll();
   }
 
   public Team registerTeam(final TeamRequestDTO teamRequestDTO) {

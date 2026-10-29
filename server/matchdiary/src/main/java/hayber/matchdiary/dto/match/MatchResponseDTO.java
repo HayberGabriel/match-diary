@@ -3,6 +3,7 @@ package hayber.matchdiary.dto.match;
 import java.sql.Date;
 
 import hayber.matchdiary.model.Match;
+import hayber.matchdiary.model.Team;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,12 +19,12 @@ public class MatchResponseDTO {
     private Date date;
     private Integer scoreTeamOne;
     private Integer scoreTeamTwo;
-    private Long teamOne;
-    private Long teamTwo;
-    private Long supportedTeam;
+    private Team teamOne;
+    private Team teamTwo;
+    private Team supportedTeam;
 
     public MatchResponseDTO(Match match) {
         this(match.getId(), match.getDate(), match.getScoreTeamOne(),
-            match.getScoreTeamTwo(), match.getTeamOne().getId(), match.getTeamTwo().getId(), match.getSupportedTeam().getId());
+            match.getScoreTeamTwo(), match.getTeamOne(), match.getTeamTwo(), match.getSupportedTeam());
     }
 }
