@@ -14,12 +14,14 @@ public class ReportsResponseDTO {
 
     private Integer matchesQuantity;
     private Integer winsQuantity;
-    private Integer winPercentage;
+    private Double winPercentage;
     private Team mostWatchedTeam;
     private Integer daysWithoutWatching;
 
-    public ReportsResponseDTO(Integer matchesQuantity, Integer winsQuantity){
+public ReportsResponseDTO(Integer matchesQuantity, Integer winsQuantity, Double winPercentage/*, Team mostWatchedTeam*/){
         this.matchesQuantity = matchesQuantity;
         this.winsQuantity = winsQuantity;
+        this.winPercentage = winPercentage;
+        /*this.mostWatchedTeam = mostWatchedTeam;*/
     }
 }
