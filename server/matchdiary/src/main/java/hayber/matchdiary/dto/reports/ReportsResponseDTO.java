@@ -11,17 +11,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ReportsResponseDTO {
-
     private Integer matchesQuantity;
     private Integer winsQuantity;
-    private Double winPercentage;
+    private Integer winPercentage;
     private Team mostWatchedTeam;
     private Integer daysWithoutWatching;
-
-public ReportsResponseDTO(Integer matchesQuantity, Integer winsQuantity, Double winPercentage/*, Team mostWatchedTeam*/){
-        this.matchesQuantity = matchesQuantity;
-        this.winsQuantity = winsQuantity;
-        this.winPercentage = winPercentage;
-        /*this.mostWatchedTeam = mostWatchedTeam;*/
-    }
 }

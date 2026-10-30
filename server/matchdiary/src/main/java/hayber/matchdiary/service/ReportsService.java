@@ -1,10 +1,8 @@
 package hayber.matchdiary.service;
 
-
 import java.util.List;
 import java.util.Objects;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import hayber.matchdiary.dto.reports.ReportsResponseDTO;
@@ -16,7 +14,6 @@ import hayber.matchdiary.repository.TeamRepository;
 @Service 
 public class ReportsService {
     
-
     private final MatchRespository matchRespository;
 
     private final TeamRepository teamRepository;
@@ -29,8 +26,10 @@ public class ReportsService {
     public ReportsResponseDTO getAllReports(){
         Integer matchesQuantity = getMatchesQuantity();
         Integer winsQuantity = getWinsQuantity();
-        Double winPercentage = getWinPercentage();
-        return new ReportsResponseDTO(matchesQuantity, winsQuantity, winPercentage);
+        Integer winPercentage = getWinPercentage();
+        Team mostWatchedTeam = getMostWatchedTeam();
+        Integer daysWithoutWatching = getDaysWithoutWatching();
+        return new ReportsResponseDTO(matchesQuantity, winsQuantity, winPercentage, mostWatchedTeam, daysWithoutWatching);
     }
 
     private Integer getMatchesQuantity(){
@@ -64,7 +63,7 @@ public class ReportsService {
 
     }
 
-    public Double getWinPercentage() {
+    public int getWinPercentage() {
 
         double winPercentage = 0;
         double wonPoints = 0;
@@ -93,17 +92,20 @@ public class ReportsService {
             totalPoints += 3;
         }
 
+        if(totalPoints == 0){
+            return 0;
+        }
      
         winPercentage = (wonPoints / totalPoints) * 100;
-        return winPercentage;
+        return (int) winPercentage;
     }
 
-    /*public Team getMostWatchedTeam() {
+    public Team getMostWatchedTeam() {
         return teamRepository.findMostWatchedTeam();
     }
 
     public Integer getDaysWithoutWatching() {
         return matchRespository.getDaysWithoutWatching();
     }
-*/
+
 }
